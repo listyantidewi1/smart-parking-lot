@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block page_title %}Daftar Rawat Inap{% endblock %}
+{% block title %}Daftar Rawat Inap{% endblock %}
+{% block nav_item_rfid %}active{% endblock %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+
+
+  <hr>
+          <div class="col-12 col-md-8"> 
+            <div class="small-box bg-light">
+                <div class="inner">
+               
+                  <form action="/inap" method="post">
+                    <div class="form-group">
+                      <div class="row">
+                        <label for="text">Id Kamar</label>
+                        <input type="text" class="form-control" placeholder="Id Kamar" name="id_kamar" />
+                      </div>
+                      <div>
+                        <label for="status_infeksi">Status Infeksi</label>              
+                        <input type="radio" id="y" name="status_infeksi" value="Iya" />
+                        <label for="y">Iya</label>
+                        <input type="radio" id="n" name="status_infeksi" value="Tidak" />
+                        <label for="n">Tidak</label>
+                      </div>
+                      <div>
+
+                      </div>
+                     
+                    </div>
+                    <div class="col-4">
+                      <button type="submit" class="btn btn-primary btn-block">Daftar Inap</button>
+                    </div>
+                  </form>
+                      <p>{% for mesg in get_flashed_messages() %}
+                      <h4>{{ mesg }}</h4>
+                      {% endfor %}</p>
+                </div>
+            </div>
+          </div>
+       </div>
+    </div>
+</div>
+
+{% block chart %} {% endblock %}
+  {% endblock %}
+
